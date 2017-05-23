@@ -1,0 +1,6 @@
+<platform xmlns="http://ns.adobe.com/air/extension/19.0">
+    <linkerOptions>
+        <option>-weak_framework Security</option>
+        <option>-weak_framework StoreKit</option>
+    </linkerOptions>
+</platform>

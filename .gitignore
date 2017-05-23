@@ -1,0 +1,8 @@
+actionscript/.idea
+Main.iml
+project.properties
+build/temp
+.DS_STORE
+UserInterfaceState.xcuserstate
+ios/StoreReview.xcodeproj/xcuserdata/*.xcuserdatad
+ios/StoreReview.xcodeproj/project.xcworkspace/xcuserdata/*.xcuserdatad

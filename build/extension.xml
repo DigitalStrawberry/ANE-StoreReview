@@ -1,0 +1,25 @@
+<extension xmlns="http://ns.adobe.com/air/extension/19.0">
+  <id>com.digitalstrawberry.ane.storeReview</id>
+  <versionNumber>1.0.0</versionNumber>
+  <platforms>
+     <platform name="iPhone-ARM">
+        <applicationDeployment>
+            <nativeLibrary>libStoreReview.a</nativeLibrary>
+            <initializer>StoreReviewInitializer</initializer>
+            <finalizer>StoreReviewFinalizer</finalizer>
+        </applicationDeployment>
+    </platform>
+
+    <platform name="iPhone-x86">
+        <applicationDeployment>
+            <nativeLibrary>libStoreReview.a</nativeLibrary>
+            <initializer>StoreReviewInitializer</initializer>
+            <finalizer>StoreReviewFinalizer</finalizer>
+        </applicationDeployment>
+    </platform>
+
+    <platform name="default">
+        <applicationDeployment/>
+    </platform>
+  </platforms>
+</extension>
