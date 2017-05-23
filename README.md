@@ -41,10 +41,18 @@ StoreReview.requestReview();
 
 The system automatically limits the display of the prompt to three occurrences per app within a 365-day period. The extension keeps track of the current app environment (development, TestFlight, App Store) and the number of requests made in the last 365 days to make a best guess on whether the review dialog will display or not. The `willDialogDisplay` getter returns `true` if:
 
-  1. Less than 3 requests have been made in the last 365 days,
+  1. Less than 3 requests have been made in the last 365 days, or
   2. The app is in development (i.e. deployed directly to a device).
 
 TestFlight builds always return `false`. Note the user may have already left a review or disabled the rating prompts for all apps in the device settings. This information is not exposed via public API, thus the returned value may not be correct in all situations.
+
+```as3
+if(StoreReview.willDialogDisplay)
+{
+    // The dialog will likely be displayed after this request
+    StoreReview.requestReview();
+}
+```
 
 You can also query the number of requests made in the last 365 days as well as the number of days that have passed since the last request:
 
