@@ -193,6 +193,45 @@ package com.digitalstrawberry.ane.storereview
 			}
 			return result;
 		}
+		
+
+		/**
+		 * Returns the version of the app for which the last review request was made,
+		 * or null if no requests have been made.
+		 */
+		public static function get lastRequestedReviewVersion():String
+		{
+			if(!isSupported)
+			{
+				return null;
+			}
+
+			var result:String = null;
+			CONFIG::ane
+			{
+				result = mContext.call("lastRequestedReviewVersion") as String;
+			}
+			return result;
+		}
+
+
+		/**
+		 * Returns the current app version.
+		 */
+		public static function get currentVersion():String
+		{
+			if(!isSupported)
+			{
+				return null;
+			}
+
+			var result:String = null;
+			CONFIG::ane
+			{
+				result = mContext.call("currentVersion") as String;
+			}
+			return result;
+		}
 
 
 		/**
