@@ -17,6 +17,8 @@
 		C3BCC5ED1ED4C60A00E96596 /* NumRequestsFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCC5EC1ED4C60A00E96596 /* NumRequestsFunctions.m */; };
 		C3BCC5F01ED4C70200E96596 /* DaysSinceLastRequestFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCC5EF1ED4C70200E96596 /* DaysSinceLastRequestFunction.m */; };
 		C3BCC5F31ED4C7DB00E96596 /* WillDialogDisplayFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCC5F21ED4C7DB00E96596 /* WillDialogDisplayFunction.m */; };
+		C3BCC5F61ED596E500E96596 /* LastRequestedReviewVersionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCC5F51ED596E500E96596 /* LastRequestedReviewVersionFunction.m */; };
+		C3BCC5F91ED5971700E96596 /* CurrentAppVersionFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = C3BCC5F81ED5971700E96596 /* CurrentAppVersionFunction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +54,10 @@
 		C3BCC5EF1ED4C70200E96596 /* DaysSinceLastRequestFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DaysSinceLastRequestFunction.m; sourceTree = "<group>"; };
 		C3BCC5F11ED4C7DB00E96596 /* WillDialogDisplayFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WillDialogDisplayFunction.h; sourceTree = "<group>"; };
 		C3BCC5F21ED4C7DB00E96596 /* WillDialogDisplayFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WillDialogDisplayFunction.m; sourceTree = "<group>"; };
+		C3BCC5F41ED596E500E96596 /* LastRequestedReviewVersionFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LastRequestedReviewVersionFunction.h; sourceTree = "<group>"; };
+		C3BCC5F51ED596E500E96596 /* LastRequestedReviewVersionFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LastRequestedReviewVersionFunction.m; sourceTree = "<group>"; };
+		C3BCC5F71ED5971700E96596 /* CurrentAppVersionFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CurrentAppVersionFunction.h; sourceTree = "<group>"; };
+		C3BCC5F81ED5971700E96596 /* CurrentAppVersionFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CurrentAppVersionFunction.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,10 @@
 				C3BCC5EC1ED4C60A00E96596 /* NumRequestsFunctions.m */,
 				C3BCC5EE1ED4C70200E96596 /* DaysSinceLastRequestFunction.h */,
 				C3BCC5EF1ED4C70200E96596 /* DaysSinceLastRequestFunction.m */,
+				C3BCC5F41ED596E500E96596 /* LastRequestedReviewVersionFunction.h */,
+				C3BCC5F51ED596E500E96596 /* LastRequestedReviewVersionFunction.m */,
+				C3BCC5F71ED5971700E96596 /* CurrentAppVersionFunction.h */,
+				C3BCC5F81ED5971700E96596 /* CurrentAppVersionFunction.m */,
 			);
 			path = Functions;
 			sourceTree = "<group>";
@@ -184,6 +194,8 @@
 				C3BCC5DF1ED34C5100E96596 /* KFKeychain.m in Sources */,
 				C3BCC5E71ED3508E00E96596 /* BITHockeyHelper.m in Sources */,
 				C3BCC5F31ED4C7DB00E96596 /* WillDialogDisplayFunction.m in Sources */,
+				C3BCC5F61ED596E500E96596 /* LastRequestedReviewVersionFunction.m in Sources */,
+				C3BCC5F91ED5971700E96596 /* CurrentAppVersionFunction.m in Sources */,
 				C3BCC5ED1ED4C60A00E96596 /* NumRequestsFunctions.m in Sources */,
 				C3073AE41BE2C77C00EC89B7 /* StoreReview.m in Sources */,
 				C3BCC5D31ED3225300E96596 /* IsSupportedFunction.m in Sources */,

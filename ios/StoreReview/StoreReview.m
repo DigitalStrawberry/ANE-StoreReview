@@ -32,6 +32,8 @@
 #import "Functions/WillDialogDisplayFunction.h"
 #import "Functions/NumRequestsFunctions.h"
 #import "Functions/DaysSinceLastRequestFunction.h"
+#import "Functions/LastRequestedReviewVersionFunction.h"
+#import "Functions/CurrentAppVersionFunction.h"
 #import <StoreKit/StoreKit.h>
 #import <Security/Security.h>
 
@@ -41,9 +43,11 @@ static StoreReview* StoreReviewSharedInstance = nil;
 static NSString* const kSKInitialReviewRequestTimestamp = @"initialReviewRequestTimestamp";
 static NSString* const kSKNumReviewRequests = @"numReviewRequests";
 static NSString* const kSKLastReviewRequestTimestamp = @"lastReviewRequestTimestamp";
+static NSString* const kSKLastReviewRequestVersion = @"lastReviewRequestVersion";
 
 @implementation StoreReview {
     BIT_AppEnvironment mAppEnvironment;
+    NSString* mAppVersion;
 }
 
 # pragma mark - Public API
@@ -64,6 +68,7 @@ static NSString* const kSKLastReviewRequestTimestamp = @"lastReviewRequestTimest
     if(self)
     {
         mAppEnvironment = [BITHockeyHelper bit_currentAppEnvironment];
+        mAppVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     }
     
     return self;
@@ -143,6 +148,16 @@ static NSString* const kSKLastReviewRequestTimestamp = @"lastReviewRequestTimest
     return -1;
 }
 
+- (nullable NSString*) lastRequestedReviewVersion
+{
+    return [KFKeychain loadObjectForKey:kSKLastReviewRequestVersion];
+}
+
+- (nonnull NSString*) currentVersion
+{
+    return mAppVersion;
+}
+
 
 # pragma mark - Private API
 
@@ -164,6 +179,9 @@ static NSString* const kSKLastReviewRequestTimestamp = @"lastReviewRequestTimest
     
     // Store current time as the last request timestamp
     [KFKeychain saveObject:[NSNumber numberWithDouble:date.timeIntervalSince1970] forKey:kSKLastReviewRequestTimestamp];
+    
+    // Store the current app version
+    [KFKeychain saveObject:mAppVersion forKey:kSKLastReviewRequestVersion];
     
     // Update the number of requests made
     NSNumber* numRequests = [self keychainNumRequests];
@@ -221,11 +239,13 @@ static NSString* const kSKLastReviewRequestTimestamp = @"lastReviewRequestTimest
 
 FRENamedFunction airStoreReviewExtFunctions[] =
 {
-    { (const uint8_t*) "requestReview",           0, srev_requestReview },
-    { (const uint8_t*) "isSupported",             0, srev_isSupported },
-    { (const uint8_t*) "willDialogDisplay",       0, srev_willDialogDisplay },
-    { (const uint8_t*) "daysSinceLastRequest",    0, srev_daysSinceLastRequest },
-    { (const uint8_t*) "reviewRequestsIn365Days", 0, srev_numRequests }
+    { (const uint8_t*) "requestReview",              0, srev_requestReview },
+    { (const uint8_t*) "isSupported",                0, srev_isSupported },
+    { (const uint8_t*) "willDialogDisplay",          0, srev_willDialogDisplay },
+    { (const uint8_t*) "daysSinceLastRequest",       0, srev_daysSinceLastRequest },
+    { (const uint8_t*) "reviewRequestsIn365Days",    0, srev_numRequests },
+    { (const uint8_t*) "lastRequestedReviewVersion", 0, srev_lastRequestedReviewVersion },
+    { (const uint8_t*) "currentVersion",             0, srev_currentVersion }
 };
 
 void StoreReviewContextInitializer( void* extData, const uint8_t* ctxType, FREContext ctx, uint32_t* numFunctionsToSet, const FRENamedFunction** functionsToSet )

@@ -22,20 +22,11 @@
  * SOFTWARE.
  */
 
+#ifndef LastRequestedReviewVersionFunction_h
+#define LastRequestedReviewVersionFunction_h
+ 
 #import "FlashRuntimeExtensions.h"
-#import <Foundation/Foundation.h>
 
-@interface StoreReview : NSObject
+FREObject srev_lastRequestedReviewVersion( FREContext context, void* functionData, uint32_t argc, FREObject argv[] );
 
-+ (nonnull id) sharedInstance;
-
-- (void) requestReview;
-- (BOOL) isSupported;
-- (BOOL) willDialogDisplay;
-- (int) reviewRequestsIn365Days;
-- (int) daysSinceLastRequest;
-
-- (nullable NSString*) lastRequestedReviewVersion;
-- (nonnull NSString*) currentVersion;
-
-@end
+#endif /* LastRequestedReviewVersionFunction_h */
