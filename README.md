@@ -12,7 +12,7 @@ Download the ANE from the [bin](bin/) directory or from the [releases](../../rel
 </extensions>
 ```
 
-When packaging your app for iOS, you need to point to a folder with iOS 10.3 SDK (available in Xcode 8.3) using the `-platformsdk` option in `adt` or via corresponding UI of your IDE:
+When packaging your app for iOS, you need to point to a directory with iOS 10.3 SDK (available in Xcode 8.3) using the `-platformsdk` option in `adt` or via corresponding UI of your IDE:
 
 ```
 -platformsdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk
@@ -62,7 +62,21 @@ trace(StoreReview.numRequestsIn365Days);
 trace(StoreReview.daysSinceLastRequest); // -1 if no requests have been made yet
 ```
 
+You can check the last app version for which a review request was made using the `lastRequestedReviewVersion` getter. The `currentVersion` getter returns the current app version:
+
+```as3
+// The current app version is different from the last time we made a review request
+if(StoreReview.lastRequestedReviewVersion != StoreReview.currentVersion)
+{
+    StoreReview.requestReview();
+}
+```
+
 ### Changelog
+
+#### May 24, 2017 (v1.1.0)
+
+* Added `lastRequestedReviewVersion` and `currentVersion` getters
 
 #### May 23, 2017 (v1.0.0)
 
