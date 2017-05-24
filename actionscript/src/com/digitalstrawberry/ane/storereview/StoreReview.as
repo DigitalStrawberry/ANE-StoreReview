@@ -37,7 +37,7 @@ package com.digitalstrawberry.ane.storereview
 		/**
 		 * Extension version.
 		 */
-		public static const VERSION:String = "1.0.0";
+		public static const VERSION:String = "1.1.0";
 
 		private static const TAG:String = "[StoreReview]";
 		private static const EXTENSION_ID:String = "com.digitalstrawberry.ane.storeReview";
