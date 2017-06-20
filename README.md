@@ -18,6 +18,14 @@ When packaging your app for iOS, you need to point to a directory with iOS 10.3 
 -platformsdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk
 ```
 
+Also, a minor modification must be done to the installation of AIR SDK, to use updated `ld` tool:
+
+```
+cd AIR_SDK_ROOT/lib/aot/bin/ld64
+mv ld64 ld64_air.bak
+ln -s /usr/bin/ld ld64
+```
+
 ### Usage
 
 The native API is only available in iOS 10.3 or newer. Use the `isSupported` getter to find out if the current device supports this API:
